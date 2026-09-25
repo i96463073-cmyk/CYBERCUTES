@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>CyberCute — SMM Panel</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">C</span><span>CyberCute</span></div>
+    <nav>
+      <button data-view="dashboard" class="nav-item active">⌂ <span>Dashboard</span></button>
+      <button data-view="order" class="nav-item">＋ <span>New Order</span></button>
+      <button data-view="services" class="nav-item">◈ <span>Services</span></button>
+      <button data-view="orders" class="nav-item">▤ <span>Orders</span></button>
+      <button data-view="funds" class="nav-item">₵ <span>Add Funds</span></button>
+      <button data-view="support" class="nav-item">◌ <span>Support</span></button>
+    </nav>
+    <div class="side-bottom">
+      <button id="logoutBtn" class="nav-item">↪ <span>Logout</span></button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button id="menuBtn" class="icon-btn">☰</button>
+      <div>
+        <div class="eyebrow">SMM MANAGEMENT</div>
+        <h1 id="pageTitle">Dashboard</h1>
+      </div>
+      <div class="top-actions">
+        <span id="userName" class="user-name"></span>
+        <button data-view="funds" class="balance-pill">KES <span id="balance">0.00</span></button>
+      </div>
+    </header>
+
+    <section id="view-dashboard" class="view active">
+      <div class="hero">
+        <div>
+          <span class="badge">POWERED FOR CREATORS</span>
+          <h2>Grow your social presence with <span>CyberCute.</span></h2>
+          <p>Manage services, orders and wallet funds from one clean dashboard.</p>
+          <button data-view="order" class="primary">Create New Order →</button>
+        </div>
+        <div class="hero-orb"></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><span>Wallet Balance</span><strong id="statBalance">KES 0.00</strong><small>Available funds</small></div>
+        <div class="stat"><span>Total Orders</span><strong id="statOrders">0</strong><small>Your recent orders</small></div>
+        <div class="stat"><span>Services</span><strong id="statServices">0</strong><small>Available services</small></div>
+      </div>
+      <div class="section-head"><div><h3>Recent Orders</h3><p>Your latest activity</p></div><button data-view="orders" class="ghost">View all</button></div>
+      <div id="recentOrders" class="table-card"></div>
+    </section>
+
+    <section id="view-order" class="view">
+      <div class="section-head"><div><h3>New Order</h3><p>Choose a service and submit your campaign.</p></div></div>
+      <div class="form-card">
+        <label>Category<select id="categorySelect"><option value="">Select category</option></select></label>
+        <label>Service<select id="serviceSelect"><option value="">Select service</option></select></label>
+        <div id="serviceInfo" class="service-info hidden"></div>
+        <label>Link / URL<input id="orderLink" type="url" placeholder="https://instagram.com/..."></label>
+        <label>Quantity<input id="quantity" type="number" placeholder="Enter quantity"></label>
+        <div class="order-summary"><span>Estimated total</span><strong id="orderTotal">KES 0.00</strong></div>
+        <button id="placeOrderBtn" class="primary full">Place Order</button>
+      </div>
+    </section>
+
+    <section id="view-services" class="view">
+      <div class="section-head"><div><h3>Services</h3><p>Browse available SMM services.</p></div><input id="serviceSearch" class="search" placeholder="Search services..."></div>
+      <div id="serviceGrid" class="service-grid"></div>
+    </section>
+
+    <section id="view-orders" class="view">
+      <div class="section-head"><div><h3>Orders</h3><p>Track your order history.</p></div></div>
+      <div id="ordersTable" class="table-card"></div>
+    </section>
+
+    <section id="view-funds" class="view">
+      <div class="section-head"><div><h3>Add Funds</h3><p>Fund your CyberCute wallet securely.</p></div></div>
+      <div class="payment-layout">
+        <div class="form-card">
+          <div class="payment-logo">PesaPal</div>
+          <label>Amount (KES)<input id="fundAmount" type="number" min="1" placeholder="e.g. 500"></label>
+          <label>Email<input id="fundEmail" type="email" placeholder="you@example.com"></label>
+          <label>Phone<input id="fundPhone" type="tel" placeholder="2547XXXXXXXX"></label>
+          <button id="payBtn" class="primary full">Continue to PesaPal →</button>
+          <p class="muted">Payment is verified server-side before wallet crediting.</p>
+        </div>
+        <div class="info-card"><span class="badge">SECURE PAYMENTS</span><h3>Fast wallet funding</h3><p>Use PesaPal to fund your balance. Your payment credentials are handled by the secure backend integration.</p></div>
+      </div>
+    </section>
+
+    <section id="view-support" class="view">
+      <div class="support-card">
+        <span class="badge">CUSTOMER SUPPORT</span>
+        <h2>Need help?</h2>
+        <p>Chat with CyberCute Support on WhatsApp for assistance with orders, payments or services.</p>
+        <a class="primary link-btn" href="https://wa.me/254796681162?text=Hello%20CyberCute%20Support" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+    </section>
+  </main>
+</div>
+<div id="toast" class="toast"></div>
+<script src="/js/app.js"></script>
+</body>
+</html>
